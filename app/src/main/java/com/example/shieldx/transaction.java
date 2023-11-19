@@ -56,7 +56,7 @@ public class transaction extends AppCompatActivity {
 
         transactions Transaction = new transactions(accountNum, amountNum);
 
-        shieldXdBref .push().setValue(transactions);
+        shieldXdBref .push().setValue(shieldXdBref);
         Toast.makeText(transaction.this, "data inserted", Toast.LENGTH_SHORT).show();
     }
 }
