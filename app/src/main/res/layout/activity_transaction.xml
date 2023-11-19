@@ -76,31 +76,21 @@
         android:layout_width="120dp"
         android:layout_height="60dp"
         android:fontFamily="sans-serif"
-        android:text="Send ₹"
+        android:text="Submit"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         />
 
     <Button
-        android:id="@+id/clear"
+        android:id="@+id/buttonBack"
         android:layout_width="120dp"
         android:layout_height="60dp"
         android:fontFamily="sans-serif"
-        android:text="Clear"
+        android:text="Back"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:layout_marginLeft="40dp"
         />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/buttonBack"
-        android:layout_width="270dp"
-        android:layout_height="60dp"
-        android:fontFamily="sans-serif"
-        android:text="Back"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:layout_marginTop="30dp"
-        />
 </LinearLayout>

@@ -23,5 +23,6 @@ public class milatry extends AppCompatActivity {
                 startActivity(backk);
             }
         });
+
     }
 }
