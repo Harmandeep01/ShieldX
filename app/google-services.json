@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "940268116118",
+    "project_id": "shieldxdb-95ae9",
+    "storage_bucket": "shieldxdb-95ae9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940268116118:android:28bdf82235035517340ab7",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVNIWXJKous3FiWTO1byUm5tMpZ1WFIQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
