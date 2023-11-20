@@ -1,15 +1,16 @@
 {
   "project_info": {
     "project_number": "940268116118",
+    "firebase_url": "https://shieldxdb-95ae9-default-rtdb.firebaseio.com",
     "project_id": "shieldxdb-95ae9",
     "storage_bucket": "shieldxdb-95ae9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:940268116118:android:28bdf82235035517340ab7",
+        "mobilesdk_app_id": "1:940268116118:android:d925a3ab66b22698340ab7",
         "android_client_info": {
-          "package_name": "com.android.application"
+          "package_name": "com.example.shieldx"
         }
       },
       "oauth_client": [],

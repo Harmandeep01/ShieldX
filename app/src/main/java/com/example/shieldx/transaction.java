@@ -1,62 +1,61 @@
 package com.example.shieldx;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Transaction;
 
-public class transaction extends AppCompatActivity {
+    public class transaction extends AppCompatActivity {
 
-    EditText accountNum;
-    EditText amountNum;
-    Button btnInsertData;
-    DatabaseReference shieldXdBref;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_transaction);
+        EditText accountNumEditText, amountNumEditText;
+        Button btnInsertData;
+        DatabaseReference shieldXdBref;
 
-        accountNum = findViewById(R.id.editTextNumber);
-        amountNum = findViewById(R.id.editTextNumber2);
-        btnInsertData = findViewById(R.id.buttonSubmit);
+        @SuppressLint("MissingInflatedId")
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_transaction);
 
-        shieldXdBref = FirebaseDatabase.getInstance().getReference().child("transactions");
-        btnInsertData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                insertTransactionData();
-            }
-        });
-        // Assuming you have a button with id btn1 in activity_transaction.xml
-        Button btn1 = this.<Button>findViewById(R.id.buttonBack);
+            accountNumEditText = findViewById(R.id.editTextNumber);
+            amountNumEditText = findViewById(R.id.editTextNumber2);
+            btnInsertData = findViewById(R.id.buttonSubmit);
 
-        // Set a click listener for the button
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Create an Intent to go back to MainActivity
-                Intent intent = new Intent(transaction.this, MainActivity.class);
+            shieldXdBref = FirebaseDatabase.getInstance().getReference().child("transactions");
 
-                // Start the MainActivity and finish the current activity
-                startActivity(intent);
-                finish();
-            }
-        });
-    }
-    private void insertTransactionData(){
-        String account = accountNum.getText().toString();
-        String amt     = amountNum.getText().toString();
+            btnInsertData.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String accountNumber = accountNumEditText.getText().toString();
+                    String amount = amountNumEditText.getText().toString();
+                    shieldXdBref = FirebaseDatabase.getInstance().getReference().child("transactions");
+                    if (!accountNumber.isEmpty() && !amount.isEmpty()) {
 
-        transactions Transaction = new transactions(accountNum, amountNum);
+                        String transactionId = shieldXdBref.push().getKey();
+                        // Create a MyTransaction object
+                        Transactions myTransaction = new Transactions(transactionId,accountNumber, amount);
 
-        shieldXdBref .push().setValue(shieldXdBref);
-        Toast.makeText(transaction.this, "data inserted", Toast.LENGTH_SHORT).show();
-    }
+                        // Push the transaction object to the "transactions" node in Firebase
+                        shieldXdBref.push().setValue(myTransaction);
+
+                        // Clear the EditText fields after inserting data
+                        accountNumEditText.setText("");
+                        amountNumEditText.setText("");
+
+                        Toast.makeText(transaction.this, "Transaction added successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(transaction.this, "Please enter account number and amount", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
 }

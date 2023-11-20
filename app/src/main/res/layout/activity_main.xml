@@ -42,13 +42,13 @@
             android:gravity="center"
             android:layout_marginTop="15dp"
             >
-        <Button
-            android:id="@+id/buttonNext"
-            android:layout_width="151dp"
-            android:layout_height="73dp"
-            android:text="Start"
-            android:textSize="35dp"
-            />
+
+            <Button
+                android:id="@+id/buttonNext"
+                android:layout_width="151dp"
+                android:layout_height="54dp"
+                android:text="Start"
+                android:textSize="35sp" />
             <Button
                 android:id="@+id/buttonVerify"
                 android:layout_width="151dp"
